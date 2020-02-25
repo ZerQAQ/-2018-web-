@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta content="text/html" charset="UTF-8">
+    <title>图片网站</title>
+    <style type="text/css">
+        .red {
+            color: red;
+            font-size: 10;
+        }
+
+        .green {
+            color: green;
+            font-size: 10;
+        }
+    </style>
+</head>
+<body>
+<form action="/authorization" id=form>
+    <div>
+        帐号: <br><input type="text" name="username">
+        <div id='name'></div>
+    </div>
+    <div>
+        密码: <br>
+        <input type="text" name="password">
+        <div id='gender'></div>
+    </div>
+    <div>
+        <input type="text" name="url" value="{{ url }}" style="display: none">
+    </div>
+    <input type="submit" value="提交">
+    </div>
+    {% if (status == '1') %}
+        登录失败！请重新登录！
+    {% endif %}
+</form>
+<div id='info'></div>
+</body>
+</html>

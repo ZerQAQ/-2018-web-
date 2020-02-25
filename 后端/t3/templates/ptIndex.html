@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        var timer = 0
+        $(document).ready(function () {
+            $('#btn').click(function () {
+                var url = '/check/{{ key }}'
+                clearInterval(timer)
+                console.log(url)
+                let serverGetkeyUrl = 'http://127.0.0.1:6001/getkey/{{ key }}'
+                let pictureWebGetkeyurl = 'http://127.0.0.1:6002/authorization'
+                let openUrl = pictureWebGetkeyurl + '?url=' + serverGetkeyUrl
+                console.log(openUrl)
+                window.open(URL = openUrl)
+                timer = setInterval(function () {
+                    $.get(url, function (respond) { //获取授权状态
+                        data = jQuery.parseJSON(respond)
+                        $('#info').empty()
+                        if (data != 'fail') {
+                            $('#info').append('打印成功！\n用于打印的授权码是：' + data)
+                            clearInterval(timer)
+                        } else {
+                            $('#info').append('尝试获取授权中...')
+                        }
+                    })
+                }, 1000)
+            })
+        })
+    </script>
+    <title>打印</title>
+</head>
+<body>
+<button id='btn'>打印图片</button>
+<div id='info'></div>
+</body>
+</html>

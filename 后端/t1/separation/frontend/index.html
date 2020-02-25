@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta content="text/html" charset="UTF-8">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="submit.js"></script>
+    <style type="text/css">
+        .red {
+            color: red;
+            font-size: 10;
+        }
+
+        .green {
+            color: green;
+            font-size: 10;
+        }
+    </style>
+</head>
+<body>
+<form action="http://127.0.0.1:5000/loginInfoSubmit" id=form>
+    <div>
+        姓名: <br><input type="text" name="name">
+        <div id='name'></div>
+    </div>
+    <div>
+        性别: <br>
+        <input type="text" name="gender">
+        <div id='gender'></div>
+    </div>
+    <div>
+        年龄: <br>
+        <input type="text" name="age">
+        <div id='age'></div>
+    </div>
+    <div>
+        手机号码： <br>
+        <input type="text" name="phone">
+        <div id='phone'></div>
+    </div>
+</form>
+<button id='submit'> 提交</button>
+<div id='info'></div>
+</body>
+</html>
